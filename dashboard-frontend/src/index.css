@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #faf8f5;
+  --panel: #ffffff;
+  --panel-alt: #f3ede6;
+  --border: #e4ddd3;
+  --wine: #6b1e35;
+  --wine-dark: #4d1526;
+  --wine-tint: #f6e9ed;
+  --text: #2b2620;
+  --muted: #6e655c;
+  --success: #2e7d4f;
+  --danger: #b3261e;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.display { font-family: 'Playfair Display', serif; }
+
+button { font-family: 'Space Grotesk', sans-serif; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+input:focus {
+  border-color: var(--wine) !important;
+  box-shadow: 0 0 0 2px rgba(107, 30, 53, 0.15);
+}
+
+/* --- Utility top strip --- */
+.utility-strip {
+  background: var(--wine);
+  color: #f4ecef;
+}
+.utility-link {
+  color: #f4ecef;
+  font-size: 12px;
+  opacity: 0.92;
+  transition: opacity 0.15s ease;
+}
+.utility-link:hover { opacity: 1; text-decoration: underline; }
+
+/* --- Module cards --- */
+.module-card-gov {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.module-card-gov:hover,
+.module-card-gov:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(107, 30, 53, 0.12);
+  border-color: var(--wine);
+  outline: none;
+}
+
+.module-icon-seal {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--wine);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.wine-btn {
+  background: var(--wine);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.wine-btn:hover { background: var(--wine-dark); }
+
+.outline-btn {
+  background: transparent;
+  border: 1px solid var(--wine);
+  color: var(--wine);
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.outline-btn:hover { background: var(--wine); color: #fff; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.status-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.status-dot.online { background: var(--success); animation: pulse-dot 2s infinite; }
+.status-dot.offline { background: var(--danger); animation: pulse-dot 2s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot, .module-card-gov, .utility-link, .wine-btn, .outline-btn { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 720px) {
+  .gov-header-row { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+}

@@ -1,0 +1,42 @@
+export const APPS = [
+    {
+      id: "reports",
+      name: "Reports",
+      description: "Upload and manage PDF reports",
+      icon: "📄",
+      role: "reports-access",
+      origin: "http://localhost:3001",
+    },
+    {
+      id: "inventory",
+      name: "Inventory",
+      description: "Track stock levels and items",
+      icon: "📦",
+      role: "inventory-access",
+      origin: "http://localhost:3002",
+    },
+    {
+      id: "asset",
+      name: "Asset Tracker",
+      description: "Register and monitor assets",
+      icon: "🏷️",
+      role: "asset-access",
+      origin: "http://localhost:3003",
+    },
+    {
+      id: "notice",
+      name: "Notice Board",
+      description: "Post and view notices",
+      icon: "📢",
+      role: "notice-access",
+      origin: "http://localhost:3004",
+    },
+    {
+      id: "personnel",
+      name: "Personnel Directory",
+      description: "Staff directory and details",
+      icon: "🧑‍💼",
+      role: "personnel-access",
+      origin: "http://localhost:3005",
+    },
+  ];
